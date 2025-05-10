@@ -1,10 +1,11 @@
 from dotenv import load_dotenv
-import openai
+from openai import OpenAI
 import requests
+import os
 
 load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_API_KEY") 
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def chat():
     while(True):
@@ -12,15 +13,13 @@ def chat():
         if a == "exit":
             exit()
         else:
-            b = openai.Completion.create(
-                engine="text-davinci-002",
-                prompt=a,
+            b = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": a}],
                 max_tokens=1024,
-                n=1,
-                stop=None,
                 temperature=0.5, # controls the randomness of the output
             )
-            print("Bot: " + b.choices[0].text)
+            print("Bot: " + b.choices[0].message.content)
    
 
 if __name__ == "__main__":
