@@ -58,8 +58,17 @@ docker run -it terminai
 ## 🧠 Sample Interaction
 
 ```bash
-You: What’s the capital of Japan?
-Bot: The capital of Japan is Tokyo.
+You: write the word "SUN" in ASCII art
+Bot: Here is the word "SUN" in ASCII art:
+
+  SSS   U   U  N   N
+ S   S  U   U  NN  N
+ S      U   U  N N N
+  SSS   U   U  N  NN
+     S  U   U  N   N
+ S   S  U   U  N   N
+  SSS    UUU   N   N
+You: exit
 ```
 
 ---
